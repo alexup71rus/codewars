@@ -1,4 +1,4 @@
 function sumTwoSmallestNumbers(numbers) {
-  numbers = numbers.sort(function (a, b) { return a - b; });
+  numbers = numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
 }
