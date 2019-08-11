@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findOdd(A) {
+            let arr = {};
+            A.map(i=>{
+                arr[i] = arr[i] ? arr[i]+1 : 1;
+            });
+            const uniq = Object.keys(arr).filter(i=>{
+                if (arr[i]/2%1 !== 0) {
+                    return arr[i];
+                }
+            });
+            return +uniq[0];
+        }
+
+        findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5], 5);
+        findOdd([1,1,2,-2,5,2,4,4,-1,-2,5], -1);
+        findOdd([20,1,1,2,2,3,3,5,5,4,20,4,5], 5);
+        findOdd([10], 10);
+        findOdd([1,1,1,1,1,1,10,1,1,1,1], 10);
+        findOdd([5,4,3,2,1,5,4,3,2,10,10], 1);
+    </script>
+</body>
+</html>
