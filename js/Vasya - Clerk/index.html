@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function tickets(peopleInLine){
+            let cashbox = {
+                "25": 0,
+                "50": 0,
+                "100": 0,
+            };
+            try {
+                peopleInLine.forEach((cash, index) => {
+                    switch (cash) {
+                        case 25:
+                            cashbox["25"]++;
+                            break;
+                        case 50:
+                            if (cashbox["25"] > 0) {
+                                cashbox["25"]--;
+                                cashbox["50"]++;
+                            } else {
+                                throw "NO";
+                            }
+                            break;
+                        case 100:
+                            if (cashbox["25"] > 0 && cashbox["50"] > 0) {
+                                cashbox["25"]--;
+                                cashbox["50"]--;
+                                cashbox["100"]++;
+                            } else if (cashbox["25"] > 2) {
+                                cashbox["25"] -= 3;
+                                cashbox["100"]++;
+                            } else {
+                                throw "NO";
+                            }
+                    }
+                });
+            } catch (e) {
+                return e;
+            }
+            return "YES";
+        }
+
+        // console.log(tickets([25, 25, 50]));
+        // console.log(tickets([25, 100]));
+        // console.log(tickets([25, 25, 50, 50, 100]));
+    </script>
+</body>
+</html>
