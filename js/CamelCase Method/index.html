@@ -9,10 +9,9 @@
 <body>
     <script>
         String.prototype.camelCase=function(){
-            const words = this.replace(/^\s*(.*)\s$/, '$1').split(' ').map(word => {
+            return this.replace(/^\s*(.*)\s$/, '$1').split(' ').map(word => {
                 return word && word[0].toUpperCase() + word.slice(1);
-            });
-            return words.join("");
+            }).join("");
         }
     </script>
 </body>
